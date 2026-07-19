@@ -1,0 +1,107 @@
+/* ==========================
+   HakuRo Project Studio
+   Base Style
+========================== */
+
+/* -------------------------
+   Reset
+------------------------- */
+
+*{
+
+    margin:0;
+
+    padding:0;
+
+    box-sizing:border-box;
+
+}
+
+/* -------------------------
+   Body
+------------------------- */
+
+body{
+
+    font-family:"Yu Gothic",sans-serif;
+
+    background:#f4f7f1;
+
+    color:#333;
+
+    line-height:1.8;
+
+}
+
+/* -------------------------
+   Typography
+------------------------- */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6{
+
+    font-weight:bold;
+
+}
+
+p{
+
+    margin-bottom:15px;
+
+}
+
+/* -------------------------
+   List
+------------------------- */
+
+ul{
+
+    padding-left:20px;
+
+}
+
+li{
+
+    margin:8px 0;
+
+}
+
+/* -------------------------
+   Link
+------------------------- */
+
+a{
+
+    color:#4c7c53;
+
+    text-decoration:none;
+
+    font-weight:bold;
+
+}
+
+a:hover{
+
+    color:#7fa883;
+
+    text-decoration:underline;
+
+}
+
+/* -------------------------
+   Image
+------------------------- */
+
+img{
+
+    display:block;
+
+    max-width:100%;
+
+    height:auto;
+
+}
