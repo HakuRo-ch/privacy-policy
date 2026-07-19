@@ -218,6 +218,32 @@ footer p {
 
 }
 
+/* ==========================
+   Screenshot
+========================== */
+
+.screenshot-grid{
+
+    display:flex;
+
+    gap:20px;
+
+    overflow-x:auto;
+
+    padding-bottom:10px;
+
+}
+
+.screenshot-grid img{
+
+    width:250px;
+
+    border-radius:15px;
+
+    flex-shrink:0;
+
+}
+
 /* -------------------------
    Smartphone
 ------------------------- */
