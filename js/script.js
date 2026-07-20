@@ -12,50 +12,51 @@ document.querySelectorAll(".carousel").forEach((carousel) => {
 
     function update() {
 
-        const slideWidth = slides[0].clientWidth;
+        const slideWidth = carousel.querySelector(".carousel-window").clientWidth;
 
-        track.style.transform =
-            `translateX(-${current * slideWidth}px)`;
+        track.style.transform = `translateX(-${current * slideWidth}px)`;
 
         dots.forEach((dot, index) => {
-
-            if (index === current) {
-                dot.classList.add("active");
-            } else {
-                dot.classList.remove("active");
-            }
-
+            dot.classList.toggle("active", index === current);
         });
 
     }
+
+    // -----------------------------
+    // 次へ
+    // -----------------------------
 
     nextBtn.addEventListener("click", () => {
 
         current++;
 
         if (current >= slides.length) {
-
             current = 0;
-
         }
 
         update();
 
     });
+
+    // -----------------------------
+    // 前へ
+    // -----------------------------
 
     prevBtn.addEventListener("click", () => {
 
         current--;
 
         if (current < 0) {
-
             current = slides.length - 1;
-
         }
 
         update();
 
     });
+
+    // -----------------------------
+    // ドット
+    // -----------------------------
 
     dots.forEach((dot, index) => {
 
@@ -69,16 +70,11 @@ document.querySelectorAll(".carousel").forEach((carousel) => {
 
     });
 
-    window.addEventListener("resize", update);
-
-    update();
-
-});
-
-    // ----- スワイプ対応 -----
+    // -----------------------------
+    // スワイプ
+    // -----------------------------
 
     let startX = 0;
-    let endX = 0;
 
     track.addEventListener("touchstart", (e) => {
 
@@ -88,16 +84,14 @@ document.querySelectorAll(".carousel").forEach((carousel) => {
 
     track.addEventListener("touchend", (e) => {
 
-        endX = e.changedTouches[0].clientX;
+        const endX = e.changedTouches[0].clientX;
 
         const diff = endX - startX;
 
-        // 50px以上動いたら判定
         if (Math.abs(diff) < 50) return;
 
         if (diff < 0) {
 
-            // 左へスワイプ → 次へ
             current++;
 
             if (current >= slides.length) {
@@ -106,7 +100,6 @@ document.querySelectorAll(".carousel").forEach((carousel) => {
 
         } else {
 
-            // 右へスワイプ → 前へ
             current--;
 
             if (current < 0) {
@@ -119,12 +112,12 @@ document.querySelectorAll(".carousel").forEach((carousel) => {
 
     });
 
-@media (max-width:700px){
+    // -----------------------------
+    // リサイズ対応
+    // -----------------------------
 
-    .carousel{
+    window.addEventListener("resize", update);
 
-        max-width:280px;
+    update();
 
-    }
-
-}
+});
