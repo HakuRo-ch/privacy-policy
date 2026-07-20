@@ -32,11 +32,11 @@
 
 .carousel-track img{
 
-    width:340px;
+    width:100%;
+
+    min-width:100%;
 
     height:auto;
-
-    flex:0 0 340px;
 
     display:block;
 
